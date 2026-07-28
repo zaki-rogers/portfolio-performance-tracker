@@ -32,6 +32,8 @@ def main():
 
 
 def add_holdings(filepath, tickers, quantity, purchase_date):
+    """Append a new holding to a CSV file, writing a header row if the file doesn't exist yet."""
+
     file_exists = os.path.exists(filepath)
 
     with open(filepath, "a") as file:
@@ -42,6 +44,8 @@ def add_holdings(filepath, tickers, quantity, purchase_date):
 
 
 def read_holdings(filepath):
+    """Read all holdings from a CSV file and return them as a list of dictionaries."""
+    
     holdings = []
     
     with open(filepath) as file:
@@ -52,6 +56,8 @@ def read_holdings(filepath):
     
 
 def fetch_price_history(tickers, start, end):
+    """Fetch historical closing prices from Yahoo Finance and return them as a nested dictionary of {ticker: {date: price}}."""
+
     price_history = {}
     
     stock_price_data = yf.download(tickers, start=start, end=end)
@@ -71,6 +77,8 @@ def fetch_price_history(tickers, start, end):
 
 
 def calculate_daily_values(holdings, price_history):
+    """Calculate total portfolio value for each date, counting only holdings already purchased by that date."""
+
     daily_values = {}
     last_known_price = {}
 
@@ -100,6 +108,8 @@ def calculate_daily_values(holdings, price_history):
 
 
 def calculate_total_return(daily_values):
+    """Calculate the percentage return between the earliest and most recent portfolio values."""
+
     dates_list = list(daily_values.keys())
     earliest_date = dates_list[0]
     latest_date = dates_list[-1]
@@ -111,6 +121,8 @@ def calculate_total_return(daily_values):
 
 
 def plot_portfolio_value(daily_values):
+    """Plot total portfolio value over time and save the chart as an image."""
+
     dates = list(daily_values.keys())
     values = list(daily_values.values())
 
