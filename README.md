@@ -1,5 +1,5 @@
-# Portfolio Value Tracker
-#### Video Demo: <URL HERE>
+# Portfolio Performance Tracker
+#### Video Demo: <https://youtu.be/RbLDyL2obcs>
 #### Description:
 
 ##### What it does
