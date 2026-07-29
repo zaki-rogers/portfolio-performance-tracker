@@ -220,3 +220,4 @@ __marimo__/
 # Generated files, not tracked
 holdings.csv
 portfolio_value.png.vscode/
+.vscode/
